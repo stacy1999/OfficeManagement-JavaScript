@@ -19,5 +19,10 @@ describe('MeetingRoom', function(){
     meetingRoom.enter();
     meetingRoom.leave();
     expect(meetingRoom.getCurrentAvailability()).toBe(true);
-  })
+  });
+  
+  it('throws an error if you try to use a room that is unavailable', function(){
+    meetingRoom.enter();
+    expect(function(){ meetingRoom.enter(); }).toThrowError('cannot enter, room is unavailable');
+  });
 })
