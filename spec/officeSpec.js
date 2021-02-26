@@ -1,32 +1,20 @@
 'use strict';
-describe('MeetingRoom', function(){
+
+describe('Office', function(){
+  var office;
   var meetingRoom;
-
   beforeEach(function(){
-    meetingRoom = new MeetingRoom('Room for Jello');
-  });
-
-  it('has an availability', function(){
-    expect(meetingRoom.getCurrentAvailability()).toBe(true);
-  });
-
-  it('has a name', function(){
-    expect(meetingRoom.getMeetingRoomName()).toBe('Room for Jello');
+    office = new Office(meetingRoom);
   });
   
-  it('lets you enter a room and makes it unavailable', function(){
-    meetingRoom.enter();
-    expect(meetingRoom.getCurrentAvailability()).toBe(false);
+   it('has no rooms by default', function(){
+    expect(office.getRooms()).toEqual([]);
+   });
+
+  it('creates a meeting room', function(){
+    office.createMeetingRoom('room for jello');
+    expect(office.getRooms()).toEqual([{ availability: true, roomName: 'room for jello' }]);
   });
 
-  it('lets you leave a room and make it available again', function(){
-    meetingRoom.enter();
-    meetingRoom.leave();
-    expect(meetingRoom.getCurrentAvailability()).toBe(true);
-  });
   
-  it('throws an error if you try to use a room that is unavailable', function(){
-    meetingRoom.enter();
-    expect(function(){ meetingRoom.enter(); }).toThrowError('cannot enter, room is unavailable');
-  });
 })

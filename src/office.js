@@ -1,27 +1,15 @@
 'use strict';
-
-class MeetingRoom {
-  constructor(meetingRoomName){
-    this.availability = true;
-    this.roomName = meetingRoomName;
+class Office {
+  constructor(){
+    this._rooms = [];
   }
 
-  getCurrentAvailability(){
-    return this.availability;
-  }
+  getRooms() {
+    return this._rooms;
+  };
 
-  getMeetingRoomName(){
-    return this.roomName;
-  }
-
-  enter(){
-    if(this.getCurrentAvailability() === false){
-      throw new Error('cannot enter, room is unavailable')
-    }
-    this.availability = false;
-  }
-
-  leave(){
-    this.availability = true;
-  }
+  createMeetingRoom(meetingRoomName){
+    let newRoom = new MeetingRoom(meetingRoomName);
+    this._rooms.push({ availability: newRoom.availability, roomName: newRoom.roomName});
+  };
 }
