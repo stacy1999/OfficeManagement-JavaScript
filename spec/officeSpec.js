@@ -3,11 +3,15 @@ describe('MeetingRoom', function(){
   var meetingRoom;
 
   beforeEach(function(){
-    meetingRoom = new MeetingRoom();
+    meetingRoom = new MeetingRoom('Room for Jello');
   });
 
   it('has an availability', function(){
     expect(meetingRoom.getCurrentAvailability()).toBe(true);
+  });
+
+  it('has a name', function(){
+    expect(meetingRoom.getMeetingRoomName()).toBe('Room for Jello');
   });
   
   it('lets you enter a room and makes it unavailable', function(){

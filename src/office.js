@@ -1,12 +1,17 @@
 'use strict';
 
 class MeetingRoom {
-  constructor(){
+  constructor(meetingRoomName){
     this.availability = true;
+    this.roomName = meetingRoomName;
   }
 
   getCurrentAvailability(){
     return this.availability;
+  }
+
+  getMeetingRoomName(){
+    return this.roomName;
   }
 
   enter(){
