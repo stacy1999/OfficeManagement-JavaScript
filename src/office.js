@@ -8,4 +8,8 @@ class MeetingRoom {
   getCurrentAvailability(){
     return this.availability;
   }
+
+  enter(){
+    this.availability = false;
+  }
 }

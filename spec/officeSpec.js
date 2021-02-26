@@ -10,4 +10,8 @@ describe('MeetingRoom', function(){
     expect(meetingRoom.getCurrentAvailability()).toBe(true);
   });
   
+  it('lets you enter a room and makes it unavailable', function(){
+    meetingRoom.enter();
+    expect(meetingRoom.getCurrentAvailability()).toBe(false);
+  });
 })
