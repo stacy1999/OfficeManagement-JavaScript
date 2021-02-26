@@ -14,4 +14,10 @@ describe('MeetingRoom', function(){
     meetingRoom.enter();
     expect(meetingRoom.getCurrentAvailability()).toBe(false);
   });
+
+  it('lets you leave a room and make it available again', function(){
+    meetingRoom.enter();
+    meetingRoom.leave();
+    expect(meetingRoom.getCurrentAvailability()).toBe(true);
+  })
 })

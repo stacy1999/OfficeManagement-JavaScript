@@ -12,4 +12,8 @@ class MeetingRoom {
   enter(){
     this.availability = false;
   }
+
+  leave(){
+    this.availability = true;
+  }
 }
